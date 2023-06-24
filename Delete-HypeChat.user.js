@@ -11,27 +11,35 @@
 // ==/UserScript==
 
 (function () {
-  'use strict';
+  'use strict'
 
-  function removeHypeChat(button) {
+  function removeHypeChatButton(button) {
     if (button) {
-      button.remove();
-      console.log('%cHype-Chat deleted', 'color: #cc1141');
+      button.remove()
+      console.log('%cHype-Chat button deleted', 'color: #cc1141')
+    }
+  }
+
+  function removePinnedHypeChat(div) {
+    if (div) {
+      div.remove()
+      console.log('%cHype-Chat pinned Message deleted', 'color: #cc1141')
     }
   }
 
   const observer = new MutationObserver(function (mutationsList) {
-    const twitchHypeChat = document.querySelector("button[aria-label='Hype Chat']");
-    removeHypeChat(twitchHypeChat);
-  });
+    const twitchHypeChatButton = document.querySelector("button[aria-label='Hype Chat']")
+	const twitchPinnedHypeChat = document.querySelector("div.paid-pinned-chat-message-list")
+    removeHypeChatButton(twitchHypeChatButton)
+	removePinnedHypeChat(twitchPinnedHypeChat)
+  })
 
   function observeDOM() {
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+    observer.observe(document.documentElement, { childList: true, subtree: true })
   }
 
   window.onload = function () {
-    removeHypeChat(document.querySelector("button[aria-label='Hype Chat']"));
-    observeDOM();
-  };
-    
-})();
+    removeHypeChatButton(document.querySelector("button[aria-label='Hype Chat']"))
+    observeDOM()
+  }
+})()
