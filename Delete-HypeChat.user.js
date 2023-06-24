@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove HypeChat button
 // @author       !♥Koͨmͧiͭnͥoͤ Style♥!
-// @version      1.0.0
+// @version      1.0.1
 // @description  Free Twitch from Money Grab: Removing the HypeChat Button and Console Logging
 // @match        https://www.twitch.tv/*
 // @grant        none
